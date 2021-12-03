@@ -15,12 +15,13 @@ let eta=parseInt(prompt("Inserisci l'età"));
 
 //faccio un controllo che l'utente inserisca effettivamente numeri e non stringhe
 if (isNaN(km) || isNaN(eta)) {
-    let error=document.getElementById("error").innerHTML="Devi inserire un numero in entrambi i campi"
+    document.getElementById("error").innerHTML="Devi inserire un numero in entrambi i campi"
 } else{
     // calcolo il prezzo del biglietto
     let costoTicket=parseFloat(0.21*km);
+    
+    //applico le varie condizioni a seconda dell'eta
     if (eta < 18) {
-        //applico le varie condizioni a seconda dell'eta
         let scontoMinorenni=parseFloat( costoTicket - (costoTicket * 0.2));
         document.getElementById("output").innerHTML= `ciao, il costo della tua tratta è ${scontoMinorenni.toPrecision(4)} &euro;`;
      } else if (eta > 65) {
@@ -30,5 +31,6 @@ if (isNaN(km) || isNaN(eta)) {
          document.getElementById("output").innerHTML= `ciao, il costo della tua tratta è ${costoTicket.toPrecision(4)} &euro;`;
      }
 }
+
 
 
