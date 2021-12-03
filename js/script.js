@@ -27,7 +27,7 @@ if (isNaN(km) || isNaN(eta)) {
          let scontoAnziani=parseFloat(costoTicket - (costoTicket* 0.40))
          document.getElementById("output").innerHTML= `ciao, il costo della tua tratta è ${scontoAnziani.toPrecision(4)} &euro;`;
      } else{
-         document.getElementById("output").innerHTML= `ciao, il costo della tua tratta è ${costoTicket.toPrecision(2)} &euro;`;
+         document.getElementById("output").innerHTML= `ciao, il costo della tua tratta è ${costoTicket.toPrecision(4)} &euro;`;
      }
 }
 
