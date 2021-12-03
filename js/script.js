@@ -10,20 +10,25 @@ L’output del prezzo finale va messo fuori in forma umana (con massimo due deci
 
 //chiedo all'utente il numero di km
 let km=parseInt(prompt("Inserisci i km che vuoi percorrere"));
-if (inNan(km)) {
-    alert("devi inserire un numero")
-}
 //chiedo all'utente l'eta
 let eta=parseInt(prompt("Inserisci l'età"));
-// calcolo il prezzo del biglietto
-let costoTicket=parseFloat(0.21*km);
-//applico le varie condizioni a seconda dell'eta
-if (eta < 18) {
-   let scontoMinorenni=parseFloat( costoTicket - (costoTicket * 0.2));
-   document.getElementById("output").innerHTML= `ciao, il costo della tua tratta è ${scontoMinorenni.toPrecision(4)} &euro;`;
-} else if (eta > 65) {
-    let scontoAnziani=parseFloat(costoTicket - (costoTicket* 0.40))
-    document.getElementById("output").innerHTML= `ciao, il costo della tua tratta è ${scontoAnziani.toPrecision(4)} &euro;`;
+
+//faccio un controllo che l'utente inserisca effettivamente numeri e non stringhe
+if (isNaN(km) || isNaN(eta)) {
+    let error=document.getElementById("error").innerHTML="Devi inserire un numero in entrambi i campi"
 } else{
-    document.getElementById("output").innerHTML= `ciao, il costo della tua tratta è ${costoTicket.toPrecision(4)} &euro;`;
+    // calcolo il prezzo del biglietto
+    let costoTicket=parseFloat(0.21*km);
+    if (eta < 18) {
+        //applico le varie condizioni a seconda dell'eta
+        let scontoMinorenni=parseFloat( costoTicket - (costoTicket * 0.2));
+        document.getElementById("output").innerHTML= `ciao, il costo della tua tratta è ${scontoMinorenni.toPrecision(4)} &euro;`;
+     } else if (eta > 65) {
+         let scontoAnziani=parseFloat(costoTicket - (costoTicket* 0.40))
+         document.getElementById("output").innerHTML= `ciao, il costo della tua tratta è ${scontoAnziani.toPrecision(4)} &euro;`;
+     } else{
+         document.getElementById("output").innerHTML= `ciao, il costo della tua tratta è ${costoTicket.toPrecision(2)} &euro;`;
+     }
 }
+
+
