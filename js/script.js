@@ -10,7 +10,9 @@ L’output del prezzo finale va messo fuori in forma umana (con massimo due deci
 
 //chiedo all'utente il numero di km
 let km=parseInt(prompt("Inserisci i km che vuoi percorrere"));
-
+if (inNan(km)) {
+    alert("devi inserire un numero")
+}
 //chiedo all'utente l'eta
 let eta=parseInt(prompt("Inserisci l'età"));
 // calcolo il prezzo del biglietto
